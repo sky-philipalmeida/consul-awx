@@ -13,6 +13,8 @@ from urllib.parse import urlparse
 import urllib3
 from requests.exceptions import ConnectionError
 
+print(os.environ.get("PROXMOX_TOKEN_SECRET"))
+
 try:
     import consul
 except ImportError:
