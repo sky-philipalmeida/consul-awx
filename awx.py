@@ -21,7 +21,7 @@ except ImportError:
 See https://python-consul2.readthedocs.io/en/latest/'"""
     )
 
-CONFIG = "consul_awx.ini"
+CONFIG = "awx.ini"
 DEFAULT_CONFIG_DIR = os.path.dirname(os.path.realpath(__file__))
 DEFAULT_CONFIG_PATH = os.path.join(DEFAULT_CONFIG_DIR, CONFIG)
 CONSUL_EXPECTED_TAGGED_ADDRESS = ["wan", "wan_ipv4", "lan", "lan_ipv4"]
@@ -59,7 +59,7 @@ class ConsulInventory:
             verify = str2bool(verify)
 
         self.consul_api = consul.Consul(
-            host=host,
+            host=os.getenv('PROXMOX_TOKEN_SECRET'),
             port=port,
             token=token,
             scheme=scheme,
