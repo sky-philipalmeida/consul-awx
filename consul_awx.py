@@ -13,8 +13,6 @@ from urllib.parse import urlparse
 import urllib3
 from requests.exceptions import ConnectionError
 
-logging.debug("PROXMOX_TOKEN_SECRET: %s", os.environ.get("PROXMOX_TOKEN_SECRET"))
-
 try:
     import consul
 except ImportError:
@@ -375,6 +373,8 @@ def get_node_meta_types(config_path=None):
 def main():
     args = cmdline_parser()
     consul_config = get_client_configuration(args.path)
+
+    logging.debug("PROXMOX_TOKEN_SECRET: %s", os.environ.get("PROXMOX_TOKEN_SECRET"))
 
     c = ConsulInventory(**consul_config)
     tagged_address = args.tagged_address or os.environ.get(
