@@ -9,5 +9,5 @@
         msg: "test var: {{role}}"
     - name: Loop All Hosts
       debug:
-        msg: "host is {{item}}"
+        msg: "host is {{item}} {{ hostvars[item]['role'] }}"
       with_items: "{{ groups['all'] }}"
