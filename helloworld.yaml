@@ -7,3 +7,7 @@
     - name: Debug inventory role
       debug:
         msg: "test var: {{role}}"
+    - name: Loop All Hosts
+      debug:
+        msg: "host is {{item}}"
+      with_items:  groups['all'] 
