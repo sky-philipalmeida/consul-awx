@@ -4,12 +4,6 @@
     - name: Hello Message
       debug:
         msg: "Hello World!"
-- name: Print all available facts
-  hosts: all
-  ansible.builtin.debug:
-    var: ansible_facts
-- name: Retrieve host vars
-  hosts: all
-  tasks:
-    - debug:
-        var=hostvars[inventory_hostname]
+    - name: Debug inventory role
+      debug:
+        msg: "test var: {{role}}"
