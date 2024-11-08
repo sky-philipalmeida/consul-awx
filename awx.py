@@ -64,7 +64,7 @@ class ConsulInventory:
             token=token,
             scheme=scheme,
             verify=verify,
-            dc=os.getenv('DC'),
+            dc=os.getenv('dc'),
             cert=cert,
         )
 
