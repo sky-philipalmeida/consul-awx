@@ -4,6 +4,10 @@
     - name: Hello Message
       debug:
         msg: "Hello World!"
+- name: Print all available facts
+  hosts: all
+  ansible.builtin.debug:
+    var: ansible_facts
 - name: Retrieve host vars
   hosts: all
   tasks:
