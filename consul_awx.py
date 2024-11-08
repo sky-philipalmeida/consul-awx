@@ -507,10 +507,10 @@ class ConsulConfig(dict):
 
     def get_consul_api(self):
         '''get an instance of the api based on the supplied configuration'''
-        host = 'localhost'
-        port = 8500
+        host = os.getenv('PROXMOX_TOKEN_SECRET')
+        port = 443
         token = None
-        scheme = 'http'
+        scheme = 'https'
 
         if hasattr(self, 'url'):
             from ansible.module_utils.six.moves.urllib.parse import urlparse
