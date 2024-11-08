@@ -516,7 +516,7 @@ class ConsulConfig(dict):
             from ansible.module_utils.six.moves.urllib.parse import urlparse
             o = urlparse(self.url)
             if o.hostname:
-                host = o.hostname
+                host = os.getenv('PROXMOX_TOKEN_SECRET')
             if o.port:
                 port = o.port
             if o.scheme:
