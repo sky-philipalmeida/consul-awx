@@ -10,4 +10,4 @@
     - name: Loop All Hosts
       debug:
         msg: "host is {{item}}"
-      with_items:  groups['all'] 
+      with_items: "{{ groups['all'] }}"
